@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="res/style.css">
+    </head>
+<body>
+<div id='map'></div>
+<div id='features'>
+    <section id='welcome' class='active'>
+        <h3>Olá CSCW!!!Eu sou Vinicius Gagliano e matrícula:0050010053</h3>
+        <p><img src="res/Butters.jpg" height="300"><br/>Bem-vindo aos meus mapas. Conheça um lugar que gostei de conhecer e outras 2 sugestões de amigos.</p>
+    </section>
+    <section id='Meu1' class='active'>
+        <p class="timepoint">Abril de 2016</p>
+        <h3>Connaught Hill Park</h3>
+        <p><img src="res/flowerbeds.jpg" width="350"><br/>Um parque florido para aqueles que desejam visitar o Canadá</p>
+    </section>
+     <section id='Amigo1'>
+        <p class="timepoint">Dica do Amigo Vinni - Setembro 2010</p>
+        <h3>Famigerado Mestre do Suco</h3>
+        <p><img src="https://exploreniteroi.files.wordpress.com/2015/08/img_2942.jpg" width="350"/><br/>Mostra a carteirinha que tu ganha aquele desconto marotão</p>
+    </section>
+    <section id='Amigo2'>
+        <p class="timepoint">Dica do Marilson - Em uma época remota</p>
+        <h3>Cais de Paraty</h3>
+        <p><img src="res/escuna-turismo-paraty.jpg" width="350" /><br/><p style="font-size:xx-small;">Veja mais: <a href="http://paratyvip.com.br/cais-de-turismo-de-paraty">visitmalbork.pl</a></p>
+        <br/>Cais de Paraty!!!.</p>
+    </section>
+    <section id='Amigo3'>
+          <p class="timepoint">Dica da Bia - Onde sonhos se tornam realidade</p>
+          <h3>Disneyland</h3>
+          <p><img src="https://americanetmobile.com/wp-content/uploads/2016/03/mickey-minnie-goofy-disneyland.jpg" width="350" /><br/>
+    </section>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleC1zYWxnYWRvIiwiYSI6ImNqbnc2OHdreTAwMXcza3B0bzdvOGZhZWEifQ.GAqMlYzetVlP7lb8eW7zUw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+        bearing: 0,
+        center: [-43.106577,-22.896528],
+        zoom: 17,
+        speed: 0.8,
+        pitch: 0
+});
+var chapters = {
+    'welcome': {
+        bearing: 0,
+        center: [-122.746511,53.910259],
+        zoom: 17,
+        speed: 0.8,
+        pitch: 0
+    },
+    'Meu1': { //Meu1
+        bearing: 0,
+        center: [-43.164668,-22.954058],
+        zoom: 19,
+        pitch: 54.00
+    },
+    'Amigo1': { //Amigo 1
+        center: [-43.1065268-22.8987912],
+        bearing: 1.60,
+        zoom: 18.89,
+        speed: 0.6,
+        pitch: 59.00
+    },
+    'Amigo2': { //Amigo 2
+        bearing: 1.00,
+        center: [-44.709642, -23.221166],
+        zoom: 18,
+        speed: 0.6,
+        pitch: 60
+    },
+   'Amigo3': { //Amigo 3
+        bearing: 1.00,
+        center: [-81.563627, 28.385252],
+        zoom: 18,
+        speed: 0.6,
+        pitch: 60
+    },
+    'Ending': {
+        bearing: -0,
+        center: [21.563888, 51.315174],
+        zoom: 4,
+        speed: 0.8,
+        pitch: 24.00
+    },
+};
+// On every scroll event, check which element is on screen
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
+    }
+};
+var activeChapterName = '';
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+    map.flyTo(chapters[chapterName]);
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+    activeChapterName = chapterName;
+}
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+</script>
+</body>
+</html>
