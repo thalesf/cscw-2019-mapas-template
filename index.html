@@ -12,29 +12,23 @@
 <div id='map'></div>
 <div id='features'>
     <section id='welcome' class='active'>
-        <h3>Olá CSCW!!!Eu sou Vinicius Gagliano e matrícula:0050010053</h3>
-        <p><img src="res/Butters.jpg" height="300"><br/>Bem-vindo aos meus mapas. Conheça um lugar que gostei de conhecer e outras 2 sugestões de amigos.</p>
+        <h3>Olá CSCW!!!Eu sou Thales Ferreira e matrícula:0050012587</h3>
+        <p><img src="res/c1-Butters.jpg" height="300"><br/>Bem-vindo aos meus mapas. Conheça um lugar que gostei de conhecer e outras 2 sugestões de amigos.</p>
     </section>
     <section id='Meu1' class='active'>
-        <p class="timepoint">Abril de 2016</p>
-        <h3>Connaught Hill Park</h3>
-        <p><img src="res/flowerbeds.jpg" width="350"><br/>Um parque florido para aqueles que desejam visitar o Canadá</p>
+        <p class="timepoint">Maio de 2019</p>
+        <h3>Instituto de Tecnologia de Massachusetts</h3>
+        <p><img src="https://jpn.up.pt/wp-content/uploads/2015/03/MIT_Building_10_and_the_Great_Dome_Cambridge_MA.jpg" width="350"><br/>Universidade de Massachusetts</p>
     </section>
      <section id='Amigo1'>
-        <p class="timepoint">Dica do Amigo Vinni - Setembro 2010</p>
-        <h3>Famigerado Mestre do Suco</h3>
-        <p><img src="https://exploreniteroi.files.wordpress.com/2015/08/img_2942.jpg" width="350"/><br/>Mostra a carteirinha que tu ganha aquele desconto marotão</p>
+        <p class="timepoint">Universidade de Oxford 2019</p>
+        <h3>Universidade Oxford</h3>
+        <p><img src="http://origin.guiadoestudante.abril.com.br/imagem/Oxford-550x450.jpg" width="350"/><br/>Universidade de Oxford</p>
     </section>
     <section id='Amigo2'>
-        <p class="timepoint">Dica do Marilson - Em uma época remota</p>
-        <h3>Cais de Paraty</h3>
-        <p><img src="res/escuna-turismo-paraty.jpg" width="350" /><br/><p style="font-size:xx-small;">Veja mais: <a href="http://paratyvip.com.br/cais-de-turismo-de-paraty">visitmalbork.pl</a></p>
-        <br/>Cais de Paraty!!!.</p>
-    </section>
-    <section id='Amigo3'>
-          <p class="timepoint">Dica da Bia - Onde sonhos se tornam realidade</p>
-          <h3>Disneyland</h3>
-          <p><img src="https://americanetmobile.com/wp-content/uploads/2016/03/mickey-minnie-goofy-disneyland.jpg" width="350" /><br/>
+        <p class="timepoint">Melhor Universidade</p>
+        <h3>Maio de 2019</h3>
+        <p><img src="https://www.estudopratico.com.br/wp-content/uploads/2018/04/harvard.jpg" width="350" /><br/></p>
     </section>
 </div>
 <script>
@@ -43,7 +37,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
         bearing: 0,
-        center: [-43.106577,-22.896528],
+        center: [ -43.106860, -22.896958],
         zoom: 17,
         speed: 0.8,
         pitch: 0
@@ -58,7 +52,7 @@ var chapters = {
     },
     'Meu1': { //Meu1
         bearing: 0,
-        center: [-43.164668,-22.954058],
+        center: [ -71.0958353, 42.3599231],
         zoom: 19,
         pitch: 54.00
     },
@@ -71,14 +65,7 @@ var chapters = {
     },
     'Amigo2': { //Amigo 2
         bearing: 1.00,
-        center: [-44.709642, -23.221166],
-        zoom: 18,
-        speed: 0.6,
-        pitch: 60
-    },
-   'Amigo3': { //Amigo 3
-        bearing: 1.00,
-        center: [-81.563627, 28.385252],
+        center: [-1.2555254, 51.7550316],
         zoom: 18,
         speed: 0.6,
         pitch: 60
